@@ -1,226 +1,867 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="STEM Discovery Club - A youth-led community program inspiring young students through hands-on STEM learning." />
+  <meta name="keywords" content="STEM, science, technology, engineering, mathematics, youth club, nonprofit, education" />
+  <meta name="author" content="STEM Discovery Club" />
+  <title>STEM Discovery Club | Inspiring Young Minds</title>
+
+  <style>
+    :root {
+      --teal: #68abb8;
+      --teal-dark: #255e68;
+      --navy: #122b34;
+      --cream: #fff8ec;
+      --white: #ffffff;
+      --gold: #f6c85f;
+      --muted: #60757b;
+      --shadow: 0 18px 45px rgba(18, 43, 52, 0.16);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: #68ABB8; /* Teal background */
-      color: #FFFFFF;            /* White text */
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(18, 43, 52, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+
+    .nav-menu a:hover {
+      color: var(--navy);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: var(--white) !important;
+      background: var(--teal-dark);
+      box-shadow: 0 10px 25px rgba(37, 94, 104, 0.22);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(246, 200, 95, 0.36), transparent 30%),
+        linear-gradient(135deg, var(--teal), #8bc9d4 55%, var(--cream));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 54px;
+      align-items: center;
+      padding: 86px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      color: var(--teal-dark);
+      background: rgba(255, 255, 255, 0.74);
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    .hero h1 {
+      max-width: 740px;
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      color: var(--white);
+      text-shadow: 0 12px 34px rgba(18, 43, 52, 0.2);
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin-top: 24px;
+      font-size: 1.25rem;
+      color: rgba(18, 43, 52, 0.88);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .button-secondary {
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--teal-dark);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--teal-dark);
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .section-header h2 {
+      margin-top: 10px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-header p {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .mission-grid,
+    .cards-grid,
+    .contact-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .mission-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 34px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .panel.highlight {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--teal-dark), var(--navy));
+    }
+
+    .panel h3 {
+      margin-bottom: 14px;
+      font-size: 1.55rem;
+    }
+
+    .panel p + p {
+      margin-top: 14px;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .team-card,
+    .process-card,
+    .event-card,
+    .contact-card {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .team-icon,
+    .process-number {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 18px;
+      background: rgba(104, 171, 184, 0.17);
+      color: var(--teal-dark);
+      font-weight: 900;
+      font-size: 1.4rem;
+    }
+
+    .team-card h3,
+    .event-card h3,
+    .process-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .team-card p,
+    .event-card p,
+    .process-card p,
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .process-section {
+      background: linear-gradient(180deg, rgba(104, 171, 184, 0.16), transparent);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .event-card {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .event-date {
+      min-height: 82px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: var(--teal-dark);
+      color: var(--white);
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .event-date span {
+      display: block;
+    }
+
+    .date-month {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .date-day {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .cta-band {
+      padding: 62px;
+      border-radius: 36px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top right, rgba(246, 200, 95, 0.38), transparent 30%),
+        linear-gradient(135deg, var(--teal-dark), var(--navy));
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+    }
+
+    .cta-band p {
+      max-width: 680px;
+      margin: 16px auto 28px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.08rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid rgba(18, 43, 52, 0.12);
+      border-radius: 16px;
+      font: inherit;
+      outline: none;
+      background: #fbfffe;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--teal-dark);
+      box-shadow: 0 0 0 4px rgba(104, 171, 184, 0.18);
+    }
+
+    .footer {
+      padding: 56px 0 26px;
+      color: rgba(255, 255, 255, 0.76);
+      background: var(--navy);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .footer h4 {
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .footer ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2000;
+      display: none;
+      max-width: 320px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      color: var(--white);
+      background: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .toast.show {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-menu {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-grid,
+      .mission-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid,
+      .process-grid,
+      .events-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding: 56px 0;
+      }
+
+      .stats-row,
+      .cards-grid,
+      .process-grid,
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .event-card {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-band {
+        padding: 34px 20px;
+      }
     }
   </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="STEM Discovery Club - Inspiring the next generation of scientists, technologists, engineers, and mathematicians.">
-    <meta name="keywords" content="STEM, education, science, technology, engineering, mathematics, club, nonprofit">
-    <meta name="author" content="STEM Discovery Club">
-    <title>STEM Discovery Club - Inspiring Young Minds</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <h1 style="text-align: center;"> STEM Discovery Club </h1>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li> <li><a href="#about us">About Us</a></li> <li style="text-align: center;"><a href="#meet the team">Meet the Team</a></li> <li><a href="#sign up">Sign Up</a></li>  <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="STEM Discovery Club Home">
+        <span class="brand-mark">STEM</span>
+        <span>STEM Discovery Club</span>
+      </a>
 
-    <!-- Hero Section -->
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Meet the Team</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#events">Sign Up</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
     <section class="hero" id="home">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <h2 style="text-align: center;">Discover Your Passion for STEM</h2>
-            <p style="text-align: center;">Inspiring the Next Generation of Scientists, Technologists, Engineers & Mathematicians</p>
-            <p style="text-align: center;"class="hero-subtext"> Join our next session and allow your child's passion for STEM to flourish </p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">🔬 Youth-led STEM learning</span>
+          <h1>Discover your passion for STEM.</h1>
+          <p>Inspiring the next generation of scientists, technologists, engineers, and mathematicians through fun, hands-on learning experiences.</p>
+          <div class="hero-actions">
+            <a href="#events" class="button button-primary">Join Our Next Session</a>
+            <a href="#about" class="button button-secondary">See Our Mission</a>
+          </div>
         </div>
+
+        <aside class="hero-card" aria-label="Program highlights">
+          <h2>Small activities. Big curiosity.</h2>
+          <p>Our student volunteers create welcoming sessions where younger students can explore science, coding, engineering, and creative problem-solving.</p>
+          <div class="stats-row">
+            <div class="stat">
+              <strong>4</strong>
+              <span>Student Leaders</span>
+            </div>
+            <div class="stat">
+              <strong>3+</strong>
+              <span>STEM Topics</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Hands-on Fun</span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about us" id="about us">
-        <div class="container">
-            <h2>About Us</h2>
-            <p class="section-subtitle">Empowering young minds through science and innovation</p>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p style="text-align: center;"> We are a group of high school students who want to make an impact in our community by helping young students who are interested in the STEM field to explore the different branches of science and expand their knowledge through hands-on, learning experiences.
-                    <p style="text-align: center;">Why? Have you ever noticed that kids that are "genuises" are usually just children who were exposed to these programs early on? Nation wide about 6-7% of students are considered "giffted", not just because they were born with it, but because they were surrounded by things that helped them develop a more advanced way of thinking. We can increase this percentage of "gifted" kids together by hosting small, fun activities that allow us to help kids become more exposed to a competitive but amazing field.</p>
-                    <p style="text-align: center;">However, we can't achhieve this alone. We need your help, as a community. As students who have always wanted to be "genuises" but weren't exposed to many oppurtunities as children, we now want to help the next generation be able to get ahead and achieve their dreams. </p>
-                    
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Mission</span>
+          <h2>Empowering young minds through science and innovation</h2>
+          <p>We help younger students build confidence, curiosity, and early exposure to STEM through simple, fun, and meaningful activities.</p>
         </div>
-        </section>
 
-    <!-- Meet the Team Section -->
-    <section class="meet the team" id="meet the team">
-        <div class="container">
-            <h2 style="text-align: center;">Meet The Team</h2>
-            
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-icon">🔬</div>
-                    <h3 style="text-align: center;">Nidhi Mehta</h3>
-                    <p style="text-align: center;">Co-Founder and Program Coordinator</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">💻</div>
-                    <h3 style="text-align: center;">Mannat Sangha</h3>
-                    <p style="text-align: center;">Co-Founder and Program Coordinator</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">⚙️</div>
-                    <h3 style="text-align: center;">Anikka Love Bone</h3>
-                    <p style="text-align: center;">Co-Founder and Outreach Coordinator</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">📐</div>
-                    <h3 style="text-align: center;">Sana Charles</h3>
-                    <p style="text-align: center;">Co-Founder and Activity Manager</p>
+        <div class="mission-grid">
+          <article class="panel">
+            <h3>Who we are</h3>
+            <p>We are a group of high school students who want to make a positive impact in our community by helping younger students explore different branches of science and technology.</p>
+            <p>Our goal is to make STEM feel exciting, approachable, and creative through hands-on learning experiences.</p>
+          </article>
 
-    <!-- Sign Up Section -->
-    <section class="sign up" id="sign up">
-        <div class="container">
-            <h2>Sign Up Now!</h2>
-            <p class="section-subtitle">Join us at our next session for exciting STEM learning opportunities</p>
-            
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-month">Jun</span>
-                        <span class="date-day">15</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>Summer Science Camp</h3>
-                        <p>A week-long intensive program featuring daily hands-on science experiments and project work.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-month">Jun</span>
-                        <span class="date-day">22</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>Robotics Workshop</h3>
-                        <p>Learn basic robotics principles and build your first programmable robot.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-month">Jul</span>
-                        <span class="date-day">10</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>Coding Challenge</h3>
-                        <p>Compete with other students in our annual coding competition with prizes and recognition.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-month">Jul</span>
-                        <span class="date-day">25</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>STEM Career Expo</h3>
-                        <p>Meet professionals from leading tech and engineering companies and explore career opportunities.</p>
-                    </div>
-                </div>
-            </div>
+          <article class="panel highlight">
+            <h3>Why we started</h3>
+            <p>Many students become advanced learners because they are exposed to strong learning opportunities early. We want to help more children get that same chance.</p>
+            <p>By hosting small, fun activities, we can help students discover their interests and build problem-solving skills for the future.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="section-subtitle">Have questions? We'd love to hear from you!</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <h3>📍 Location</h3>
-                        <p>123 Innovation Drive<br>Tech City, TC 12345</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>📧 Email</h3>
-                        <p><a href="mailto:info@stemdiscoveryclub.org">info@stemdiscoveryclub.org</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h3>📱 Phone</h3>
-                        <p><a href="tel:+1234567890">(123) 456-7890</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h3>🕐 Hours</h3>
-                        <p>Mon - Fri: 3:00 PM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</p>
-                    </div>
-                </div>
-                <form id="contactForm" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <select name="subject" required>
-                        <option value="">Select Subject</option>
-                        <option value="inquiry">General Inquiry</option>
-                        <option value="membership">Membership</option>
-                        <option value="event">Event Registration</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
-            </div>
+    <section id="team" class="team-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Meet the Team</span>
+          <h2>Student leaders making STEM accessible</h2>
         </div>
+
+        <div class="cards-grid">
+          <article class="team-card">
+            <div class="team-icon">🔬</div>
+            <h3>Nidhi Mehta</h3>
+            <p>Co-Founder and Program Coordinator</p>
+          </article>
+
+          <article class="team-card">
+            <div class="team-icon">💻</div>
+            <h3>Mannat Sangha</h3>
+            <p>Co-Founder and Program Coordinator</p>
+          </article>
+
+          <article class="team-card">
+            <div class="team-icon">⚙️</div>
+            <h3>Anikka Love Bone</h3>
+            <p>Co-Founder and Outreach Coordinator</p>
+          </article>
+
+          <article class="team-card">
+            <div class="team-icon">📐</div>
+            <h3>Sana Charles</h3>
+            <p>Co-Founder and Activity Manager</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About Us</h4>
-                    <p>STEM Discovery Club is dedicated to inspiring and educating the next generation of innovators through engaging STEM programs and mentorship.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#programs">Programs</a></li>
-                        <li><a href="#events">Events</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link">Facebook</a>
-                        <a href="#" class="social-link">Twitter</a>
-                        <a href="#" class="social-link">Instagram</a>
-                        <a href="#" class="social-link">LinkedIn</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p>Subscribe to stay updated on our latest programs and events.</p>
-                    <input type="email" placeholder="Your email" style="padding: 8px; border-radius: 4px; border: none; width: 100%; margin-top: 0.5rem;">
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 STEM Discovery Club. All rights reserved. Made with ❤️ for education.</p>
-            </div>
+    <section id="process" class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">The Process</span>
+          <h2>How it works</h2>
+          <p>A clear, simple program flow inspired by modern nonprofit landing pages.</p>
         </div>
-    </footer>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast"></div>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="process-number">01</div>
+            <h3>Plan</h3>
+            <p>We choose age-friendly STEM topics and prepare activities that students can understand and enjoy.</p>
+          </article>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+          <article class="process-card">
+            <div class="process-number">02</div>
+            <h3>Explore</h3>
+            <p>Students participate in hands-on science, coding, engineering, math, and creative problem-solving activities.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-number">03</div>
+            <h3>Grow</h3>
+            <p>Children leave each session with more confidence, curiosity, and excitement for future STEM learning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="events-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Sign Up</span>
+          <h2>Join us at our next session</h2>
+          <p>Explore upcoming learning opportunities and register your interest.</p>
+        </div>
+
+        <div class="events-grid">
+          <article class="event-card">
+            <div class="event-date">
+              <span class="date-month">Jun</span>
+              <span class="date-day">15</span>
+            </div>
+            <div>
+              <h3>Summer Science Camp</h3>
+              <p>A week-long program featuring hands-on science experiments and project work.</p>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date">
+              <span class="date-month">Jun</span>
+              <span class="date-day">22</span>
+            </div>
+            <div>
+              <h3>Robotics Workshop</h3>
+              <p>Learn basic robotics principles and build a simple programmable robot.</p>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date">
+              <span class="date-month">Jul</span>
+              <span class="date-day">10</span>
+            </div>
+            <div>
+              <h3>Coding Challenge</h3>
+              <p>Practice logic, teamwork, and beginner-friendly programming challenges.</p>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date">
+              <span class="date-month">Jul</span>
+              <span class="date-day">25</span>
+            </div>
+            <div>
+              <h3>STEM Career Expo</h3>
+              <p>Explore future STEM career paths through student-friendly presentations.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Help young students discover what they love.</h2>
+          <p>Parents, volunteers, schools, and community partners can help us create more meaningful STEM sessions for younger students.</p>
+          <a href="#contact" class="button button-secondary">Get Involved Today</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Contact</span>
+          <h2>Get in touch</h2>
+          <p>Have questions or want to join the next session? Send us a message.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-list">
+            <article class="contact-card">
+              <h3>📍 Location</h3>
+              <p>San Antonio, Texas</p>
+            </article>
+            <article class="contact-card">
+              <h3>📧 Email</h3>
+              <p><a href="mailto:info@stemdiscoveryclub.org">info@stemdiscoveryclub.org</a></p>
+            </article>
+            <article class="contact-card">
+              <h3>🕐 Session Hours</h3>
+              <p>After school and selected weekends</p>
+            </article>
+          </div>
+
+          <form id="contactForm" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <select name="subject" required>
+              <option value="">Select Subject</option>
+              <option value="general">General Inquiry</option>
+              <option value="signup">Session Sign Up</option>
+              <option value="volunteer">Volunteer</option>
+              <option value="partner">Partnership</option>
+              <option value="other">Other</option>
+            </select>
+            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+            <button type="submit" class="button button-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>STEM Discovery Club</h4>
+          <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities.</p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#team">Meet the Team</a></li>
+            <li><a href="#events">Sign Up</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li>Science Activities</li>
+            <li>Coding Sessions</li>
+            <li>Robotics Workshops</li>
+            <li>STEM Career Talks</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 STEM Discovery Club. All rights reserved. Made with ❤️ for education.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      toast.textContent = 'Thank you! Your message has been captured. Please connect this form to your email or backend before publishing.';
+      toast.classList.add('show');
+      form.reset();
+      setTimeout(() => toast.classList.remove('show'), 4500);
+    });
+  </script>
 </body>
 </html>
