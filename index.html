@@ -3,10 +3,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="STEM Discovery Club-TX - A youth-led community program inspiring young students through hands-on STEM learning." />
-  <meta name="keywords" content="STEM, science, technology, engineering, mathematics, youth club, nonprofit, education" />
-  <meta name="author" content="STEM Discovery Club" />
-  
-            
+  <title>STEM Discovery Club | Inspiring Young Minds</title>
+
   <style>
     :root {
       --teal: #68abb8;
@@ -16,7 +14,8 @@
       --white: #ffffff;
       --gold: #f6c85f;
       --muted: #60757b;
-      --shadow: 0 18px 45px rgba(18, 43, 52, 0.16);
+      --soft-teal: #e8f7f8;
+      --shadow: 0 20px 45px rgba(18, 43, 52, 0.14);
       --radius: 24px;
     }
 
@@ -43,7 +42,7 @@
     }
 
     .container {
-      width: min(1120px, 92%);
+      width: min(1180px, 92%);
       margin: 0 auto;
     }
 
@@ -51,13 +50,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid rgba(18, 43, 52, 0.08);
-      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 22px rgba(18, 43, 52, 0.05);
     }
 
     .nav-wrap {
-      min-height: 78px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -68,115 +67,148 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      font-size: 1.18rem;
+      color: #111;
+      font-weight: 900;
       letter-spacing: -0.02em;
     }
 
-    .brand-mark {
-      width: 44px;
-      height: 44px;
+    .brand-placeholder {
+      width: 70px;
+      height: 58px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-      color: var(--white);
-      box-shadow: var(--shadow);
+      border: 2px dashed rgba(37, 94, 104, 0.35);
+      border-radius: 18px;
+      color: var(--teal-dark);
+      background: var(--soft-teal);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-align: center;
     }
-      .logo-image {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 14px;
-}
+
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 28px;
       list-style: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .nav-menu a:hover {
-      color: var(--navy);
+    .nav-menu a {
+      position: relative;
+      padding: 28px 0;
+    }
+
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 20px;
+      width: 0;
+      height: 3px;
+      background: var(--teal-dark);
+      transition: width 0.2s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
     }
 
     .nav-cta {
-      padding: 12px 18px;
-      border-radius: 999px;
+      padding: 14px 22px !important;
+      border-radius: 10px;
       color: var(--white) !important;
-      background: var(--teal-dark);
-      box-shadow: 0 10px 25px rgba(37, 94, 104, 0.22);
+      background: linear-gradient(135deg, var(--teal-dark), #007b83);
+      box-shadow: 0 12px 24px rgba(37, 94, 104, 0.24);
+    }
+
+    .nav-cta::after {
+      display: none;
     }
 
     .hero {
       position: relative;
-      overflow: hidden;
-      min-height: 680px;
-      display: flex;
-      align-items: center;
+      overflow: visible;
+      padding: 72px 0 54px;
       background:
-        radial-gradient(circle at 80% 20%, rgba(246, 200, 95, 0.36), transparent 30%),
-        linear-gradient(135deg, var(--teal), #8bc9d4 55%, var(--cream));
+        radial-gradient(circle at 82% 26%, rgba(246, 200, 95, 0.34), transparent 18%),
+        radial-gradient(circle at 72% 70%, rgba(104, 171, 184, 0.30), transparent 23%),
+        linear-gradient(135deg, #eefcfd 0%, #dff4f6 52%, var(--cream) 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 54px;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 58px;
       align-items: center;
-      padding: 86px 0;
+      padding-bottom: 34px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      margin-bottom: 20px;
-      border-radius: 999px;
+    .eyebrow,
+    .section-label {
+      display: inline-block;
       color: var(--teal-dark);
-      background: rgba(255, 255, 255, 0.74);
-      font-weight: 800;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .hero h1,
+    .section-header h2,
+    .mission-text h2,
+    .cta-band h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+      color: var(--navy);
     }
 
     .hero h1 {
-      max-width: 740px;
-      font-size: clamp(2.7rem, 7vw, 5.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      color: var(--white);
-      text-shadow: 0 12px 34px rgba(18, 43, 52, 0.2);
+      margin-top: 18px;
+      max-width: 680px;
+      font-size: clamp(3.5rem, 7vw, 6.3rem);
+    }
+
+    .underline {
+      width: 60px;
+      height: 4px;
+      margin: 22px 0 24px;
+      background: var(--teal-dark);
+      border-radius: 99px;
     }
 
     .hero p {
-      max-width: 620px;
-      margin-top: 24px;
-      font-size: 1.25rem;
-      color: rgba(18, 43, 52, 0.88);
-      font-weight: 600;
+      max-width: 560px;
+      font-size: 1.14rem;
+      color: #23383f;
+      font-weight: 500;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
+      gap: 16px;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 0;
+      padding: 14px 24px;
+      border-radius: 10px;
+      border: 1.5px solid var(--teal-dark);
       cursor: pointer;
-      font-weight: 800;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.86rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -187,170 +219,277 @@
 
     .button-primary {
       color: var(--white);
-      background: var(--navy);
+      background: var(--teal-dark);
     }
 
     .button-secondary {
-      color: var(--navy);
-      background: rgba(255, 255, 255, 0.82);
+      color: var(--teal-dark);
+      background: transparent;
     }
 
-    .hero-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      border-radius: 34px;
-      padding: 28px;
+    .floating-visuals {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .photo-placeholder {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border: 10px solid var(--white);
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(104, 171, 184, 0.22), rgba(246, 200, 95, 0.20)),
+        var(--soft-teal);
+      color: var(--teal-dark);
+      text-align: center;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      --rotate: 5deg;
+      transform: translateY(0) rotate(var(--rotate));
+      animation: photoFloat 6s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .photo-placeholder.large {
+      right: 0;
+      top: 15px;
+      width: min(470px, 82%);
+      height: 300px;
+    }
+
+    .photo-placeholder.small {
+      left: 35px;
+      bottom: 48px;
+      width: 310px;
+      height: 210px;
+      --rotate: -7deg;
+      transform: translateY(0) rotate(var(--rotate));
+      animation-duration: 5.2s;
+      animation-delay: 0.8s;
+      z-index: 2;
+    }
+
+    .badge {
+      position: absolute;
+      left: 90px;
+      top: 75px;
+      width: 118px;
+      height: 118px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--teal-dark);
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: var(--shadow);
+      z-index: 3;
+      animation: badgeFloat 4.8s ease-in-out infinite;
+    }
+
+    .gold-dot {
+      position: absolute;
+      right: 18px;
+      bottom: 80px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 18px 36px rgba(246, 200, 95, 0.35);
+      animation: dotFloat 5.5s ease-in-out infinite;
+    }
+
+    @keyframes photoFloat {
+      0%, 100% { transform: translateY(0) rotate(var(--rotate)); }
+      50% { transform: translateY(-18px) rotate(var(--rotate)); }
+    }
+
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes dotFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(14px); }
+    }
+
+    .impact-bar {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 26px;
+      margin-bottom: 0;
+      border-radius: 18px;
+      background: var(--white);
       box-shadow: var(--shadow);
     }
 
-    .hero-card h2 {
-      font-size: 1.65rem;
-      margin-bottom: 16px;
+    .impact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 8px 16px;
+      border-right: 1px solid rgba(18, 43, 52, 0.14);
     }
 
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 22px;
+    .impact-item:last-child {
+      border-right: 0;
     }
 
-    .stat {
-      padding: 18px;
-      border-radius: 20px;
-      background: var(--cream);
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
+    .impact-icon {
+      font-size: 2rem;
       color: var(--teal-dark);
-      font-size: 1.8rem;
-      line-height: 1;
     }
 
-    .stat span {
+    .impact-item strong {
       display: block;
-      margin-top: 8px;
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--navy);
+    }
+
+    .impact-item span {
+      display: block;
+      margin-top: 4px;
+      color: #111;
+      font-size: 0.86rem;
       font-weight: 700;
     }
 
     section {
-      padding: 92px 0;
+      padding: 98px 0;
+    }
+
+    .mission-section {
+      padding-top: 138px;
+      background: var(--cream);
+    }
+
+    .mission-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .mission-text h2 {
+      margin-top: 12px;
+      font-size: clamp(2.5rem, 4.4vw, 4rem);
+    }
+
+    .mission-text p {
+      margin-top: 22px;
+      max-width: 470px;
+      color: #23383f;
+      font-size: 1.02rem;
+    }
+
+    .mission-photo-wrap {
+      position: relative;
+      min-height: 380px;
+    }
+
+    .mission-photo {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border: 10px solid var(--white);
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(104, 171, 184, 0.20), rgba(255, 248, 236, 0.75)),
+        var(--soft-teal);
+      color: var(--teal-dark);
+      font-weight: 900;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .decor-circle {
+      position: absolute;
+      left: -58px;
+      top: 100px;
+      width: 100px;
+      height: 100px;
+      border-radius: 999px;
+      background: rgba(104, 171, 184, 0.35);
+    }
+
+    .dot-grid {
+      position: absolute;
+      right: -24px;
+      bottom: -26px;
+      width: 110px;
+      height: 86px;
+      opacity: 0.75;
+      background-image: radial-gradient(var(--teal-dark) 2px, transparent 2px);
+      background-size: 16px 16px;
+    }
+
+    .programs-section {
+      background: linear-gradient(180deg, #eaf9fa 0%, #f4fbfb 100%);
     }
 
     .section-header {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto 44px;
       text-align: center;
     }
 
-    .section-label {
-      color: var(--teal-dark);
-      font-size: 0.85rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
     .section-header h2 {
       margin-top: 10px;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-    }
-
-    .section-header p {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .mission-grid,
-    .cards-grid,
-    .contact-grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .mission-grid {
-      grid-template-columns: 1fr 1fr;
-      align-items: stretch;
-    }
-
-    .panel {
-      padding: 34px;
-      border-radius: var(--radius);
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .panel.highlight {
-      color: var(--white);
-      background: linear-gradient(135deg, var(--teal-dark), var(--navy));
-    }
-
-    .panel h3 {
-      margin-bottom: 14px;
-      font-size: 1.55rem;
-    }
-
-    .panel p + p {
-      margin-top: 14px;
+      font-size: clamp(2.4rem, 4.3vw, 4rem);
     }
 
     .cards-grid {
+      display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
     }
 
-    .team-card,
-    .process-card,
-    .event-card,
-    .contact-card {
-      padding: 26px;
-      border-radius: var(--radius);
+    .card {
+      min-height: 235px;
+      padding: 28px;
+      border-radius: 14px;
       background: var(--white);
       box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
     }
 
-    .team-icon,
-    .process-number {
-      width: 54px;
-      height: 54px;
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card-icon {
+      width: 62px;
+      height: 62px;
       display: grid;
       place-items: center;
-      margin-bottom: 18px;
-      border-radius: 18px;
-      background: rgba(104, 171, 184, 0.17);
-      color: var(--teal-dark);
-      font-weight: 900;
-      font-size: 1.4rem;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--teal-dark), #008a92);
+      font-size: 1.7rem;
     }
 
-    .team-card h3,
-    .event-card h3,
-    .process-card h3 {
-      margin-bottom: 8px;
-      font-size: 1.18rem;
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #111;
     }
 
-    .team-card p,
-    .event-card p,
-    .process-card p,
-    .contact-card p {
-      color: var(--muted);
-    }
-
-    .process-section {
-      background: linear-gradient(180deg, rgba(104, 171, 184, 0.16), transparent);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .card p {
+      color: #34484f;
+      font-size: 0.95rem;
     }
 
     .events-grid {
@@ -361,69 +500,83 @@
 
     .event-card {
       display: grid;
-      grid-template-columns: 82px 1fr;
+      grid-template-columns: 92px 1fr;
       gap: 20px;
       align-items: center;
+      padding: 24px;
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
 
     .event-date {
-      min-height: 82px;
+      min-height: 92px;
       display: grid;
       place-items: center;
-      border-radius: 20px;
+      border-radius: 18px;
       background: var(--teal-dark);
       color: var(--white);
       text-align: center;
       font-weight: 900;
     }
 
-    .event-date span {
-      display: block;
-    }
-
     .date-month {
+      display: block;
       font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
     }
 
     .date-day {
-      font-size: 2rem;
+      display: block;
+      font-size: 2.2rem;
       line-height: 1;
     }
 
+    .cta-section {
+      padding: 0;
+      background: linear-gradient(90deg, #d5f1f3, #b7e3e8);
+    }
+
     .cta-band {
-      padding: 62px;
-      border-radius: 36px;
-      color: var(--white);
-      background:
-        radial-gradient(circle at top right, rgba(246, 200, 95, 0.38), transparent 30%),
-        linear-gradient(135deg, var(--teal-dark), var(--navy));
-      box-shadow: var(--shadow);
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 42px 0;
     }
 
     .cta-band h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.045em;
-      line-height: 1.05;
+      font-size: clamp(2rem, 3.6vw, 3rem);
     }
 
     .cta-band p {
-      max-width: 680px;
-      margin: 16px auto 28px;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1.08rem;
+      margin-top: 8px;
+      color: #23383f;
     }
 
     .contact-grid {
+      display: grid;
       grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
       align-items: start;
     }
 
     .contact-list {
       display: grid;
       gap: 16px;
+    }
+
+    .contact-card,
+    .contact-form {
+      padding: 26px;
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card p {
+      color: var(--muted);
     }
 
     .contact-form {
@@ -436,8 +589,8 @@
     .contact-form textarea {
       width: 100%;
       padding: 15px 16px;
-      border: 1px solid rgba(18, 43, 52, 0.12);
-      border-radius: 16px;
+      border: 1px solid rgba(18, 43, 52, 0.13);
+      border-radius: 12px;
       font: inherit;
       outline: none;
       background: #fbfffe;
@@ -474,10 +627,6 @@
       gap: 8px;
     }
 
-    .footer a:hover {
-      color: var(--white);
-    }
-
     .footer-bottom {
       padding-top: 22px;
       border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -503,7 +652,7 @@
       display: block;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .nav-wrap {
         align-items: flex-start;
         flex-direction: column;
@@ -513,37 +662,85 @@
       .nav-menu {
         width: 100%;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 14px 20px;
+      }
+
+      .nav-menu a {
+        padding: 8px 0;
+      }
+
+      .nav-menu a::after {
+        bottom: 2px;
       }
 
       .hero-grid,
-      .mission-grid,
+      .mission-layout,
       .contact-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
+      .floating-visuals {
+        min-height: 470px;
+      }
+
+      .impact-bar,
       .cards-grid,
-      .process-grid,
       .events-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-item:nth-child(2) {
+        border-right: 0;
       }
     }
 
     @media (max-width: 620px) {
       .hero {
-        min-height: auto;
+        padding-top: 42px;
+        padding-bottom: 42px;
       }
 
-      .hero-grid {
-        padding: 56px 0;
+      .hero h1 {
+        font-size: 3.2rem;
       }
 
-      .stats-row,
+      .floating-visuals {
+        min-height: 390px;
+      }
+
+      .photo-placeholder.large {
+        width: 95%;
+        height: 230px;
+      }
+
+      .photo-placeholder.small {
+        left: 0;
+        width: 72%;
+        height: 165px;
+      }
+
+      .badge {
+        left: 12px;
+        top: 20px;
+        width: 92px;
+        height: 92px;
+      }
+
+      .impact-bar,
       .cards-grid,
-      .process-grid,
       .events-grid {
         grid-template-columns: 1fr;
+      }
+
+      .impact-item {
+        justify-content: flex-start;
+        border-right: 0;
+        border-bottom: 1px solid rgba(18, 43, 52, 0.14);
+      }
+
+      .impact-item:last-child {
+        border-bottom: 0;
       }
 
       .event-card {
@@ -551,7 +748,8 @@
       }
 
       .cta-band {
-        padding: 34px 20px;
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -561,18 +759,16 @@
   <nav class="navbar" aria-label="Main navigation">
     <div class="container nav-wrap">
       <a href="#home" class="brand" aria-label="STEM Discovery Club Home">
-<img src="./logo.png" alt="STEM Discovery Club Logo" class="logo-image">
-  <span>STEM Discovery Club</span>
-</a>
+        <div class="brand-placeholder">LOGO<br>HERE</div>
+      </a>
 
       <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#team">Meet the Team</a></li>
-        <li><a href="#process">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
         <li><a href="#events">Sign Up</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
-       <li><a href="donate.html" class="nav-cta" style="background:#f6c85f; color:#122b34 !important; font-size:1rem; padding:14px 24px;">❤️ Donate</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="donate.html" class="nav-cta">♡ Donate</a></li>
       </ul>
     </div>
   </nav>
@@ -580,121 +776,96 @@
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">🔬 Youth-led STEM learning</span>
-          <h1>Discover your passion for STEM.</h1>
-          <p>Inspiring the next generation of scientists, technologists, engineers, and mathematicians through fun, hands-on learning experiences.</p>
+        <div class="hero-copy">
+          <span class="eyebrow">Empowering the next generation</span>
+          <h1>Inspiring Young Minds Through STEM</h1>
+          <div class="underline"></div>
+          <p>STEM Discovery Club is a youth-led initiative dedicated to sparking curiosity, building skills, and creating real-world impact through hands-on STEM experiences.</p>
           <div class="hero-actions">
-            <a href="#events" class="button button-primary">Join Our Next Session</a>
-            <a href="#about" class="button button-secondary">See Our Mission</a>
+            <a href="#programs" class="button button-primary">Our Programs</a>
+            <a href="#contact" class="button button-secondary">Get Involved</a>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Program highlights">
-          <h2>Small activities. Big curiosity.</h2>
-          <p>Our student volunteers create welcoming sessions where younger students can explore science, coding, engineering, and creative problem-solving.</p>
-          <div class="stats-row">
-            <div class="stat">
-              <strong>4</strong>
-              <span>Student Leaders</span>
-            </div>
-            <div class="stat">
-              <strong>3+</strong>
-              <span>STEM Topics</span>
-            </div>
-            <div class="stat">
-              <strong>100%</strong>
-              <span>Hands-on Fun</span>
-            </div>
+        <div class="floating-visuals" aria-label="Future photo area">
+          <div class="badge">Youth Led<br>Community<br>Driven</div>
+          <div class="photo-placeholder large">Future Main Photo</div>
+          <div class="photo-placeholder small">Future Activity Photo</div>
+          <div class="gold-dot"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="impact-bar">
+          <div class="impact-item">
+            <div class="impact-icon">👥</div>
+            <div><strong>4</strong><span>Student Leaders</span></div>
           </div>
-        </aside>
+          <div class="impact-item">
+            <div class="impact-icon">⚗️</div>
+            <div><strong>3+</strong><span>STEM Topics</span></div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon">📅</div>
+            <div><strong>10+</strong><span>Future Events</span></div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon">♡</div>
+            <div><strong>100%</strong><span>Hands-on Fun</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="about" class="about-section">
-      <div class="container">
-        <div class="section-header">
+    <section id="about" class="mission-section">
+      <div class="container mission-layout">
+        <div class="mission-text">
           <span class="section-label">Our Mission</span>
-          <h2>Empowering young minds through science and innovation</h2>
+          <h2>Building the Future, Together</h2>
           <p>We help younger students build confidence, curiosity, and early exposure to STEM through simple, fun, and meaningful activities.</p>
+          <p>Our student volunteers create welcoming sessions where children can explore science, coding, engineering, math, and creative problem-solving.</p>
+          <br>
+          <a href="#contact" class="button button-primary">Learn More About Us</a>
         </div>
 
-        <div class="mission-grid">
-          <article class="panel">
-            <h3>Who we are</h3>
-            <p>We are a group of high school students who want to make a positive impact in our community by helping younger students explore different branches of science and technology.</p>
-            <p>Our goal is to make STEM feel exciting, approachable, and creative through hands-on learning experiences.</p>
-          </article>
-
-          <article class="panel highlight">
-            <h3>Why we started</h3>
-            <p>Many students become advanced learners because they are exposed to strong learning opportunities early. We want to help more children get that same chance.</p>
-            <p>By hosting small, fun activities, we can help students discover their interests and build problem-solving skills for the future.</p>
-          </article>
+        <div class="mission-photo-wrap">
+          <div class="decor-circle"></div>
+          <div class="mission-photo">Future Mission Photo</div>
+          <div class="dot-grid"></div>
         </div>
       </div>
     </section>
 
-    <section id="team" class="team-section">
+    <section id="programs" class="programs-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Meet the Team</span>
-          <h2>Student leaders making STEM accessible</h2>
+          <span class="section-label">Our Programs</span>
+          <h2>Hands-On. Minds-On. Future-Ready.</h2>
         </div>
 
         <div class="cards-grid">
-          <article class="team-card">
-            <div class="team-icon">🔬</div>
-            <h3>Nidhi Mehta</h3>
-            <p>Co-Founder and Program Coordinator</p>
+          <article class="card">
+            <div class="card-icon">🔬</div>
+            <h3>Science Explorations</h3>
+            <p>Discover the wonders of science through fun experiments and guided activities.</p>
           </article>
 
-          <article class="team-card">
-            <div class="team-icon">💻</div>
-            <h3>Mannat Sangha</h3>
-            <p>Co-Founder and Program Coordinator</p>
+          <article class="card">
+            <div class="card-icon">💻</div>
+            <h3>Tech & Coding</h3>
+            <p>Learn beginner-friendly coding, logic, and technology skills through simple projects.</p>
           </article>
 
-          <article class="team-card">
-            <div class="team-icon">⚙️</div>
-            <h3>Anikka Love Bone</h3>
-            <p>Co-Founder and Outreach Coordinator</p>
+          <article class="card">
+            <div class="card-icon">⚙️</div>
+            <h3>Engineering Challenges</h3>
+            <p>Design, build, test, and solve real-world problems through creative teamwork.</p>
           </article>
 
-          <article class="team-card">
-            <div class="team-icon">📐</div>
-            <h3>Sana Charles</h3>
-            <p>Co-Founder and Activity Manager</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" class="process-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">The Process</span>
-          <h2>How it works</h2>
-          <p>A clear, simple program flow inspired by modern nonprofit landing pages.</p>
-        </div>
-
-        <div class="process-grid">
-          <article class="process-card">
-            <div class="process-number">01</div>
-            <h3>Plan</h3>
-            <p>We choose age-friendly STEM topics and prepare activities that students can understand and enjoy.</p>
-          </article>
-
-          <article class="process-card">
-            <div class="process-number">02</div>
-            <h3>Explore</h3>
-            <p>Students participate in hands-on science, coding, engineering, math, and creative problem-solving activities.</p>
-          </article>
-
-          <article class="process-card">
-            <div class="process-number">03</div>
-            <h3>Grow</h3>
-            <p>Children leave each session with more confidence, curiosity, and excitement for future STEM learning.</p>
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>Math in Action</h3>
+            <p>Apply math in exciting and practical ways through games, puzzles, and activities.</p>
           </article>
         </div>
       </div>
@@ -704,65 +875,40 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Sign Up</span>
-          <h2>Join us at our next session</h2>
-          <p>Explore upcoming learning opportunities and register your interest.</p>
+          <h2>Join Us at Our Next Session</h2>
         </div>
 
         <div class="events-grid">
           <article class="event-card">
-            <div class="event-date">
-              <span class="date-month">Jun</span>
-              <span class="date-day">15</span>
-            </div>
-            <div>
-              <h3>Summer Science Camp</h3>
-              <p>A week-long program featuring hands-on science experiments and project work.</p>
-            </div>
+            <div class="event-date"><span class="date-month">Jun</span><span class="date-day">15</span></div>
+            <div><h3>Summer Science Camp</h3><p>A week-long program featuring hands-on science experiments and project work.</p></div>
           </article>
 
           <article class="event-card">
-            <div class="event-date">
-              <span class="date-month">Jun</span>
-              <span class="date-day">22</span>
-            </div>
-            <div>
-              <h3>Robotics Workshop</h3>
-              <p>Learn basic robotics principles and build a simple programmable robot.</p>
-            </div>
+            <div class="event-date"><span class="date-month">Jun</span><span class="date-day">22</span></div>
+            <div><h3>Robotics Workshop</h3><p>Learn basic robotics principles and build a simple programmable robot.</p></div>
           </article>
 
           <article class="event-card">
-            <div class="event-date">
-              <span class="date-month">Jul</span>
-              <span class="date-day">10</span>
-            </div>
-            <div>
-              <h3>Coding Challenge</h3>
-              <p>Practice logic, teamwork, and beginner-friendly programming challenges.</p>
-            </div>
+            <div class="event-date"><span class="date-month">Jul</span><span class="date-day">10</span></div>
+            <div><h3>Coding Challenge</h3><p>Practice logic, teamwork, and beginner-friendly programming challenges.</p></div>
           </article>
 
           <article class="event-card">
-            <div class="event-date">
-              <span class="date-month">Jul</span>
-              <span class="date-day">25</span>
-            </div>
-            <div>
-              <h3>STEM Career Expo</h3>
-              <p>Explore future STEM career paths through student-friendly presentations.</p>
-            </div>
+            <div class="event-date"><span class="date-month">Jul</span><span class="date-day">25</span></div>
+            <div><h3>STEM Career Expo</h3><p>Explore future STEM career paths through student-friendly presentations.</p></div>
           </article>
         </div>
       </div>
     </section>
 
     <section class="cta-section" aria-label="Call to action">
-      <div class="container">
-        <div class="cta-band">
-          <h2>Help young students discover what they love.</h2>
-          <p>Parents, volunteers, schools, and community partners can help us create more meaningful STEM sessions for younger students.</p>
-          <a href="#contact" class="button button-secondary">Get Involved Today</a>
+      <div class="container cta-band">
+        <div>
+          <h2>Be a Part of Something Bigger</h2>
+          <p>Your support helps us inspire more students and create more opportunities.</p>
         </div>
+        <a href="donate.html" class="button button-primary">♡ Donate Today</a>
       </div>
     </section>
 
@@ -770,24 +916,14 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Contact</span>
-          <h2>Get in touch</h2>
-          <p>Have questions or want to join the next session? Send us a message.</p>
+          <h2>Get in Touch</h2>
         </div>
 
         <div class="contact-grid">
           <div class="contact-list">
-            <article class="contact-card">
-              <h3>📍 Location</h3>
-              <p>San Antonio, Texas</p>
-            </article>
-            <article class="contact-card">
-              <h3>📧 Email</h3>
-              <p><a href="mailto:info@stemdiscoveryclub.org">info@stemdiscoveryclub.org</a></p>
-            </article>
-            <article class="contact-card">
-              <h3>🕐 Session Hours</h3>
-              <p>After school and selected weekends</p>
-            </article>
+            <article class="contact-card"><h3>📍 Location</h3><p>San Antonio, Texas</p></article>
+            <article class="contact-card"><h3>📧 Email</h3><p><a href="mailto:info@stemdiscoveryclub.org">info@stemdiscoveryclub.org</a></p></article>
+            <article class="contact-card"><h3>🕐 Session Hours</h3><p>After school and selected weekends</p></article>
           </div>
 
           <form id="contactForm" class="contact-form">
@@ -816,17 +952,15 @@
           <h4>STEM Discovery Club</h4>
           <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities.</p>
         </div>
-
         <div>
           <h4>Quick Links</h4>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#team">Meet the Team</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
             <li><a href="#events">Sign Up</a></li>
           </ul>
         </div>
-
         <div>
           <h4>Programs</h4>
           <ul>
@@ -836,7 +970,6 @@
             <li>STEM Career Talks</li>
           </ul>
         </div>
-
         <div>
           <h4>Follow Us</h4>
           <ul>
@@ -846,7 +979,6 @@
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p>&copy; 2026 STEM Discovery Club. All rights reserved. Made with ❤️ for education.</p>
       </div>
@@ -869,11 +1001,5 @@
   </script>
 </body>
 </html>
-
     
-
-   
-    
-
-   
- 
+            
