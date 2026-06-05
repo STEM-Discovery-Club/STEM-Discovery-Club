@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -6,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --teal:       #048c7f;
-    --teal-dark:  #136978;
-    --teal-mid:   #2aa8bb;
-    --teal-light: #E0F4F7;
-    --teal-pale:  #F0FAFB;
+    --teal:       #0a9e8f;
+    --teal-dark:  #077a6d;
+    --teal-mid:   #2ab8cc;
+    --teal-light: #d6f2ef;
+    --teal-pale:  #edfaf8;
     --sand:       #C9A96E;
     --sand-light: #F5EDD8;
     --sand-pale:  #FBF6EC;
@@ -50,7 +51,6 @@
     display: flex; align-items: center; gap: 10px;
   }
 
-  /* Logo placeholder */
   .logo-placeholder {
     width: 38px; height: 38px;
     border-radius: 10px;
@@ -74,7 +74,7 @@
     border: 5px solid transparent; border-top-color: var(--dark);
   }
   .logo-placeholder:hover .ph-tooltip { opacity: 1; }
-  .logo-placeholder:hover { background: #c8eaf0; }
+  .logo-placeholder:hover { background: #b2e8e2; }
 
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: var(--dark2); font-size: 0.9rem; font-weight: 600; transition: color .2s; }
@@ -88,7 +88,7 @@
 
   /* IMAGE PLACEHOLDERS */
   .img-ph {
-    border: 2px dashed rgba(26,143,160,0.35);
+    border: 2px dashed rgba(10,158,143,0.35);
     border-radius: var(--radius);
     background: linear-gradient(135deg, var(--teal-light) 0%, var(--sand-pale) 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -100,7 +100,7 @@
   .img-ph-icon {
     width: 48px; height: 48px;
     border-radius: 50%;
-    background: rgba(26,143,160,0.12);
+    background: rgba(10,158,143,0.12);
     display: flex; align-items: center; justify-content: center;
   }
   .img-ph-icon svg { opacity: 0.5; }
@@ -113,7 +113,6 @@
     font-size: 0.7rem; color: var(--gray); font-weight: 500;
     text-align: center; padding: 0 16px;
   }
-  /* animated shimmer stripe */
   .img-ph::before {
     content: '';
     position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
@@ -148,7 +147,7 @@
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--teal-light); color: var(--teal-dark);
-    border: 1px solid rgba(26,143,160,0.2);
+    border: 1px solid rgba(10,158,143,0.25);
     padding: 6px 18px; border-radius: 50px; font-size: 0.78rem; font-weight: 800;
     text-transform: uppercase; letter-spacing: .08em;
     margin-bottom: 2rem;
@@ -159,34 +158,46 @@
     font-weight: 800; line-height: 1.1;
     color: var(--dark); max-width: 820px; margin: 0 auto 1.5rem;
   }
-  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+    /* force visibility with a text-shadow in case contrast is still low */
+    text-shadow: 0 0 0 transparent;
+  }
   .hero p {
-    font-size: 1.1rem; color: var(--gray);
+    font-size: 1.1rem; color: var(--dark2);
     max-width: 540px; margin: 0 auto 2.5rem; font-weight: 500;
   }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+  /* PRIMARY BUTTON — fully explicit, no variable ambiguity */
   .btn-primary {
-    background: var(--teal); color: #fff;
+    background: var(--teal);
+    color: #ffffff !important;
     padding: 14px 30px; border-radius: 50px;
     font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem;
     text-decoration: none; display: inline-block;
+    border: none;
     transition: background .2s, transform .15s;
+    box-shadow: 0 4px 16px rgba(10,158,143,0.3);
   }
   .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
   .btn-outline {
     background: transparent; color: var(--dark);
     padding: 14px 30px; border-radius: 50px;
     font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem;
-    border: 1.5px solid rgba(201,169,110,0.5);
+    border: 1.5px solid rgba(201,169,110,0.6);
     text-decoration: none; display: inline-block;
     transition: border-color .2s, color .2s, transform .15s;
   }
   .btn-outline:hover { border-color: var(--sand); color: var(--sand-dark); transform: translateY(-2px); }
+
   .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center; }
   .stat { text-align: center; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--teal); line-height: 1; }
   .stat-label { font-size: 0.8rem; color: var(--gray); font-weight: 600; margin-top: 4px; }
-  .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .15; z-index: 0; pointer-events: none; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .12; z-index: 0; pointer-events: none; }
   .blob-1 { width: 420px; height: 420px; background: var(--teal); top: -80px; right: -80px; }
   .blob-2 { width: 320px; height: 320px; background: var(--sand); bottom: 0; left: -80px; }
   .hero > *:not(.blob) { position: relative; z-index: 1; }
@@ -204,7 +215,7 @@
   .about-card { background: var(--sand-pale); border-radius: var(--radius); padding: 24px; border: 1px solid rgba(201,169,110,0.15); }
   .about-card.accent { background: var(--teal); color: #fff; border-color: transparent; }
   .about-card.accent .about-card-title { color: #fff; }
-  .about-card.accent p { color: rgba(255,255,255,.8); }
+  .about-card.accent p { color: rgba(255,255,255,.85); }
   .about-card-icon { font-size: 1.8rem; margin-bottom: 12px; }
   .about-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
   .about-card p { font-size: 0.85rem; color: var(--gray); font-weight: 500; }
@@ -223,7 +234,7 @@
     content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
     background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s;
   }
-  .program-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,143,160,0.1); }
+  .program-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,158,143,0.1); }
   .program-card:hover::after { transform: scaleX(1); }
   .program-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px; background: var(--teal-light); }
   .program-icon.sand { background: var(--sand-light); }
@@ -255,12 +266,12 @@
 
   /* DONATE */
   .donate-strip {
-    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #2aa8bb 100%);
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #2ab8cc 100%);
     color: #fff; padding: 80px 5vw; text-align: center; position: relative; overflow: hidden;
   }
   .donate-strip > * { position: relative; z-index: 1; }
   .donate-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
-  .donate-strip p { font-size: 1.05rem; opacity: .85; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; font-weight: 500; }
+  .donate-strip p { font-size: 1.05rem; opacity: .9; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; font-weight: 500; }
   .btn-sand { background: var(--sand); color: #fff; padding: 14px 34px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; text-decoration: none; display: inline-block; transition: background .2s, transform .15s; }
   .btn-sand:hover { background: var(--sand-dark); transform: translateY(-2px); }
 
@@ -321,8 +332,7 @@
 <nav>
   <a href="#home" class="nav-logo">
     <div class="logo-placeholder">
-      <!-- Camera icon -->
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
         <circle cx="12" cy="13" r="4"/>
       </svg>
@@ -344,10 +354,9 @@
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
-  <!-- Floating image placeholders -->
   <div class="hero-img-float f1 img-ph">
     <div class="img-ph-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
         <polyline points="21 15 16 10 5 21"/>
       </svg>
@@ -358,7 +367,7 @@
 
   <div class="hero-img-float f2 img-ph">
     <div class="img-ph-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
         <polyline points="21 15 16 10 5 21"/>
       </svg>
@@ -369,7 +378,7 @@
 
   <div class="hero-img-float f3 img-ph">
     <div class="img-ph-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
         <polyline points="21 15 16 10 5 21"/>
       </svg>
@@ -388,7 +397,7 @@
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">4</div><div class="stat-label">Student Leaders</div></div>
     <div class="stat"><div class="stat-num">3+</div><div class="stat-label">STEM Topics</div></div>
-    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Upcoming Events</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Upcoming Events</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Hands-on Fun</div></div>
   </div>
 </section>
@@ -400,10 +409,9 @@
       <div class="section-label">Our Mission</div>
       <h2 class="section-title">Building the Future, Together</h2>
       <p class="section-desc">We help younger students build confidence, curiosity, and early exposure to STEM through simple, fun, and meaningful activities. Our student volunteers create welcoming sessions where children can explore science, coding, engineering, math, and creative problem-solving.</p>
-      <!-- Mission image placeholder -->
       <div class="img-ph" style="height:180px; margin-top:2rem;">
         <div class="img-ph-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
             <polyline points="21 15 16 10 5 21"/>
           </svg>
@@ -423,22 +431,21 @@
       </div>
       <div class="about-card">
         <div class="about-card-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="about-card-title">Community Driven</div>
         <p>Rooted in San Antonio, serving our local schools and neighborhoods.</p>
       </div>
       <div class="about-card">
         <div class="about-card-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <div class="about-card-title">Real Impact</div>
         <p>Every session sparks curiosity that lasts a lifetime.</p>
       </div>
-      <!-- About side image placeholder -->
       <div class="img-ph" style="height:160px; grid-column:span 2;">
         <div class="img-ph-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
             <polyline points="21 15 16 10 5 21"/>
           </svg>
@@ -463,7 +470,7 @@
     <div class="programs-grid">
       <div class="program-card">
         <div class="img-ph" style="height:120px; margin-bottom:20px;">
-          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="img-ph-label">Science photo</div>
         </div>
         <h3>Science Explorations</h3>
@@ -471,7 +478,7 @@
       </div>
       <div class="program-card">
         <div class="img-ph" style="height:120px; margin-bottom:20px;">
-          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="img-ph-label">Coding photo</div>
         </div>
         <h3>Tech &amp; Coding</h3>
@@ -479,7 +486,7 @@
       </div>
       <div class="program-card">
         <div class="img-ph" style="height:120px; margin-bottom:20px;">
-          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="img-ph-label">Engineering photo</div>
         </div>
         <h3>Engineering Challenges</h3>
@@ -487,7 +494,7 @@
       </div>
       <div class="program-card">
         <div class="img-ph" style="height:120px; margin-bottom:20px;">
-          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="img-ph-label">Math photo</div>
         </div>
         <h3>Math in Action</h3>
@@ -547,19 +554,19 @@
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-item-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div class="contact-item-text"><strong>Location</strong><span>San Antonio, Texas</span></div>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <div class="contact-item-text"><strong>Email</strong><span>info@stemdiscoveryclub.org</span></div>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A8FA0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a9e8f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div class="contact-item-text"><strong>Session Hours</strong><span>After school &amp; selected weekends</span></div>
         </div>
@@ -593,7 +600,7 @@
       <div class="footer-brand">
         <a href="#home" class="nav-logo" style="color:var(--teal-mid);">
           <div class="logo-placeholder">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2aa8bb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ab8cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
               <circle cx="12" cy="13" r="4"/>
             </svg>
