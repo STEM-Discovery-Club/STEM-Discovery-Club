@@ -13,7 +13,7 @@
     --teal-pale:  #F0FAFB;
     --white:      #ecf2f8;
     --sand-light: #F5EDD8;
-    --sand-pale:  #FBF6EC;
+    --blue-pale:  #E0F3F7;
     --sand-dark:  #9E7A3F;
     --blue-bg:    #D0E4EE;
     --dark:       #1C2B2D;
@@ -90,7 +90,7 @@
   .img-ph {
     border: 2px dashed rgba(26,143,160,0.35);
     border-radius: var(--radius);
-    background: linear-gradient(135deg, var(--teal-light) 0%, var(--sand-pale) 100%);
+    background: linear-gradient(135deg, var(--teal-light) 0%, var(--blue-pale) 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 10px; cursor: default;
     position: relative; overflow: hidden;
@@ -143,7 +143,7 @@
     text-align: center;
     padding: 120px 5vw 80px;
     position: relative; overflow: hidden;
-    background: linear-gradient(150deg, var(--sand-pale) 0%, var(--teal-pale) 100%);
+    background: linear-gradient(150deg, var(--blue-pale) 0%, var(--teal-pale) 100%);
   }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
@@ -201,7 +201,7 @@
   .about { background: #fff; border-top: 1px solid rgba(201,169,110,0.12); }
   .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
   .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .about-card { background: var(--sand-pale); border-radius: var(--radius); padding: 24px; border: 1px solid rgba(201,169,110,0.15); }
+  .about-card { background: var(--blue-pale); border-radius: var(--radius); padding: 24px; border: 1px solid rgba(201,169,110,0.15); }
   .about-card.accent { background: var(--light-blue); color: #fff; border-color: transparent; }
   .about-card.accent .about-card-title { color: #fff; }
   .about-card.accent p { color: rgba(255,255,255,.8); }
@@ -278,7 +278,7 @@
     width: 100%; padding: 12px 16px;
     border: 1.5px solid rgba(201,169,110,0.25); border-radius: var(--radius-sm);
     font-family: 'Nunito', sans-serif; font-size: 0.92rem; color: var(--dark);
-    background: var(--sand-pale); outline: none; transition: border-color .2s, background .2s;
+    background: var(--blue-pale); outline: none; transition: border-color .2s, background .2s;
   }
   .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--light-blue); background: #fff; }
   .form-group textarea { min-height: 130px; resize: vertical; }
